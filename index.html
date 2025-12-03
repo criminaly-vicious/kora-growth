@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Primary Meta Tags -->
+    <title>KORA Growth | Consultoria Comercial para Startups Early-Stage</title>
+    <meta name="title" content="KORA Growth | Consultoria Comercial para Startups Early-Stage" />
+    <meta name="description" content="70% das startups morrem por falta de estratégia comercial. Estruture seu processo de vendas com a KORA Growth. Diagnóstico gratuito para startups." />
+    <meta name="keywords" content="consultoria comercial, startups, vendas, go-to-market, estruturação comercial, pipeline, early-stage" />
+    <meta name="author" content="KORA Growth" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://koragrowth.com/" />
+    <meta property="og:title" content="KORA Growth | Consultoria Comercial para Startups" />
+    <meta property="og:description" content="70% das startups morrem por falta de estratégia comercial. Estruture seu processo de vendas antes que o pipeline seque." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://koragrowth.com/" />
+    <meta property="twitter:title" content="KORA Growth | Consultoria Comercial para Startups" />
+    <meta property="twitter:description" content="70% das startups morrem por falta de estratégia comercial. Estruture seu processo de vendas antes que o pipeline seque." />
+    <meta property="twitter:image" content="/og-image.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+    <link rel="apple-touch-icon" href="/assets/logo.svg" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0C0D26" />
+    <meta name="msapplication-TileColor" content="#0C0D26" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" as="style" />
+    
+    <!-- Load fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'kora-dark': '#0C0D26',
+              'kora-secondary': '#1D1E4F',
+              'kora-accent': '#6A6FF0',
+              'kora-text': '#C8C9D9',
+            },
+            fontFamily: {
+              'heading': ['Space Grotesk', 'sans-serif'],
+              'sans': ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'gradient-x': 'gradient-x 3s ease infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow-pulse 2s ease-in-out infinite',
+            },
+            keyframes: {
+              'gradient-x': {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Critical CSS -->
+    <style>
+      /* Critical rendering path styles */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0C0D26;
+        color: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      h1, h2, h3, h4, h5, h6, .font-heading {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      
+      /* Prevent FOUC */
+      .no-fouc {
+        visibility: hidden;
+      }
+      
+      .fouc-ready {
+        visibility: visible;
+      }
+      
+      /* Loading state */
+      #root:empty::after {
+        content: '';
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin: -20px 0 0 -20px;
+        border: 3px solid rgba(106, 111, 240, 0.2);
+        border-top-color: #6A6FF0;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+    
+    <!-- Import Map for ESM modules -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.553.0",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+        "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+      }
+    }
+    </script>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    
+    <!-- Prevent FOUC script -->
+    <script>
+      document.documentElement.classList.add('fouc-ready');
+    </script>
+  </body>
+</html>
