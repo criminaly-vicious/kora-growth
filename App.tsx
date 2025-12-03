@@ -17,7 +17,6 @@ import {
 import FluidBackground from './components/FluidBackground';
 import GradientText from './components/GlitchText';
 import CustomCursor from './components/CustomCursor';
-import AIChat from './components/AIChat';
 import TrustBar from './components/TrustBar';
 import CountUp from './components/CountUp';
 import TiltCard from './components/TiltCard';
@@ -267,7 +266,6 @@ const App: React.FC = () => {
       <ScrollProgress />
       <CustomCursor />
       <FluidBackground />
-      <AIChat />
       
       {/* ============================================
           NAVIGATION
@@ -415,16 +413,17 @@ const App: React.FC = () => {
               animate="visible"
               variants={staggerContainer}
             >
-            <GradientText 
-              text="Sua startup validou o problema." 
-              as="h1" 
-                className="text-hero font-heading font-medium tracking-tight text-center block" 
-            />
               <motion.h1 
                 variants={fadeInUp}
-                className="text-hero font-heading font-medium tracking-tight text-center text-white/40 mt-2"
+                className="text-hero font-heading font-medium tracking-tight text-center block text-white"
               >
-              Agora precisa vender.
+                Sua startup validou o problema.
+              </motion.h1>
+              <motion.h1 
+                variants={fadeInUp}
+                className="text-hero font-heading font-medium tracking-tight text-center text-white/50 mt-2"
+              >
+                Agora precisa vender.
               </motion.h1>
             </motion.div>
           </div>
