@@ -54,19 +54,19 @@ const SERVICES = [
     name: 'Estruturação Comercial', 
     price: 'Core', 
     tag: 'MAIS POPULAR',
-    description: 'Construção dos ativos fundamentais de venda.',
+    description: 'Construção dos ativos fundamentais comerciais.',
     features: ['Definição de ICP', 'Playbook de Vendas', 'Matriz de Objeções', 'Rotina Comercial', 'Setup de CRM'],
     highlight: true,
-    caseStudy: 'Nexus aumentou pipeline em 340% após estruturação'
+    caseStudy: 'Nexus ganhou previsibilidade ao estruturar narrativa e funil'
   },
   { 
     name: 'Execução Assistida', 
     price: 'Growth', 
-    tag: 'ESCALA',
-    description: 'Acompanhamento prático e co-produção de vendas.',
+    tag: 'ASSISTIDA',
+    description: 'Acompanhamento prático e co-produção comercial.',
     features: ['Abordagens Reais', 'Ajustes Semanais', 'Previsibilidade', 'Shadowing de Calls', 'Relatórios de Conversão'],
     highlight: false,
-    caseStudy: 'Quantum fechou 12 deals em 6 semanas com execução assistida'
+    caseStudy: 'Quantum criou rotina assistida e fechou os primeiros contratos'
   },
 ];
 
@@ -75,22 +75,22 @@ const SOLUTION_CARDS = [
     icon: Target, 
     title: 'Estrutura Comercial', 
     desc: 'Funil, ICP, narrativa, objeções, canais priorizados. Criamos a base sólida que transforma caos em processo.',
-    metric: '+340%',
-    metricLabel: 'pipeline médio'
+    metric: 'Base prática',
+    metricLabel: 'fundamentos validados'
   },
   { 
     icon: ShieldCheck, 
     title: 'Execução Guiada', 
     desc: 'Acompanhamos as primeiras abordagens reais junto com o time fundador. Shadowing e feedback em tempo real.',
-    metric: '2-3',
-    metricLabel: 'semanas p/ resultado'
+    metric: 'Acompanhamento',
+    metricLabel: 'primeiros ciclos assistidos'
   },
   { 
     icon: BarChart3, 
     title: 'Previsibilidade', 
     desc: 'Transformamos caos em processo, ritmo e tração. Dados reais, métricas claras, não achismos.',
-    metric: '94%',
-    metricLabel: 'taxa de sucesso'
+    metric: 'Ritmo claro',
+    metricLabel: 'métricas semanais'
   },
 ];
 
@@ -152,9 +152,9 @@ const StatsBadge: React.FC = () => (
     className="flex flex-wrap justify-center gap-4 md:gap-8 mt-8"
   >
     {[
-      { value: '47+', label: 'startups' },
-      { value: '230%', label: 'crescimento médio' },
-      { value: 'R$12M+', label: 'em vendas geradas' },
+      { value: 'Foco', label: 'startups early-stage' },
+      { value: 'Processo', label: 'playbooks sob medida' },
+      { value: 'Hands-on', label: 'execucao com founders' },
     ].map((stat, i) => (
       <div key={i} className="flex items-center gap-2 text-sm">
         <span className="font-heading font-bold text-white">{stat.value}</span>
@@ -228,7 +228,7 @@ const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', linkedin: '' });
+  const [formData, setFormData] = useState({ name: '', company: '', email: '', concept: '' });
 
   // Parallax values
   const heroY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
@@ -254,11 +254,26 @@ const App: React.FC = () => {
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwrflewftzOrBBpRmYqWu_SQsQcUjFeViymr8ftvPOEQMYstS3oqGaMoPqslZHortnR/exec';
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset or redirect
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: formData.name,
+          empresa: formData.company,
+          email: formData.email,
+          conceito: formData.concept,
+          source: 'landing',
+        }),
+      });
+      setFormData({ name: '', company: '', email: '', concept: '' });
+    } catch (error) {
+      console.error('Erro ao enviar formulário', error);
+    }
   };
   
   return (
@@ -402,7 +417,7 @@ const App: React.FC = () => {
             <span className="hidden md:inline text-white/30">|</span>
             <span className="hidden md:flex items-center gap-1">
               <Sparkles className="w-3 h-3 text-[#6A6FF0]" />
-              47+ startups estruturadas
+              Playbooks criados junto de founders
             </span>
           </motion.div>
 
@@ -554,7 +569,7 @@ const App: React.FC = () => {
                 className="mt-10 p-6 glass-card"
               >
                 <p className="text-sm italic text-[#C8C9D9] mb-4">
-                  "Tínhamos produto, tínhamos interesse... mas não sabíamos converter em vendas reais. A KORA mudou isso."
+                  "Tínhamos produto, tínhamos interesse... mas não sabíamos converter em clientes reais. A KORA mudou isso."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#6A6FF0] to-[#8B5CF6] flex items-center justify-center text-white font-bold text-sm">
@@ -675,7 +690,7 @@ const App: React.FC = () => {
               { 
                 value: 3, 
                 suffix: 'x', 
-                label: 'Mais chances de sobreviver ao fazer as primeiras 10 vendas rápido.',
+                label: 'Mais chances de sobreviver ao conquistar os 10 primeiros clientes rápido.',
                 icon: Zap,
                 iconColor: 'text-yellow-400'
               },
@@ -890,20 +905,29 @@ const App: React.FC = () => {
                     required
                   />
                   <input
-                    type="email"
-                    placeholder="Email profissional"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    type="text"
+                    placeholder="Nome da empresa"
+                    value={formData.company}
+                    onChange={(e) => setFormData({...formData, company: e.target.value})}
                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0C0D26] placeholder-gray-400 focus:outline-none focus:border-[#6A6FF0] focus:ring-2 focus:ring-[#6A6FF0]/20 transition-all"
                     required
                   />
                 </div>
                 <input
-                  type="url"
-                  placeholder="LinkedIn (opcional)"
-                  value={formData.linkedin}
-                  onChange={(e) => setFormData({...formData, linkedin: e.target.value})}
+                  type="email"
+                  placeholder="Email profissional"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0C0D26] placeholder-gray-400 focus:outline-none focus:border-[#6A6FF0] focus:ring-2 focus:ring-[#6A6FF0]/20 transition-all"
+                  required
+                />
+                <textarea
+                  placeholder="High level concept do produto ou solução"
+                  value={formData.concept}
+                  onChange={(e) => setFormData({...formData, concept: e.target.value})}
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-[#0C0D26] placeholder-gray-400 focus:outline-none focus:border-[#6A6FF0] focus:ring-2 focus:ring-[#6A6FF0]/20 transition-all resize-none"
+                  rows={3}
+                  required
                 />
               <button 
                   type="submit"
@@ -1221,7 +1245,7 @@ const App: React.FC = () => {
               variants={fadeInUp}
               className="text-xl md:text-2xl opacity-90 mb-10"
             >
-              Vai morrer por falta de <span className="font-bold underline decoration-white/50">vendas</span>. Estruture agora.
+              Vai morrer por falta de <span className="font-bold underline decoration-white/50">tração comercial</span>. Estruture agora.
             </motion.p>
 
             <motion.button 
@@ -1252,7 +1276,7 @@ const App: React.FC = () => {
                 ))}
               </div>
               <span className="text-sm text-white/80 ml-3">
-                +47 founders já estruturaram vendas
+                Founders que estruturaram a operação conosco
               </span>
             </motion.div>
           </motion.div>

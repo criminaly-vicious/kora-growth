@@ -10,16 +10,12 @@ import { motion } from 'framer-motion';
 
 // Placeholder logos - stylized text as SVG-like elements
 const LOGOS = [
-  { name: 'TechFlow', width: 100 },
-  { name: 'Nexus', width: 80 },
-  { name: 'Quantum', width: 90 },
-  { name: 'Vertex', width: 75 },
-  { name: 'Pulse', width: 70 },
-  { name: 'Nova', width: 65 },
-  { name: 'Helix', width: 70 },
-  { name: 'Orbit', width: 75 },
-  { name: 'Flux', width: 60 },
-  { name: 'Zenith', width: 80 },
+  { name: 'CENTRA', width: 110 },
+  { name: 'PERFORMIND', width: 140 },
+  { name: 'ATRIA HEALTH', width: 140 },
+  { name: 'SNACC', width: 90 },
+  { name: 'PROMPTOS', width: 120 },
+  { name: 'LINK SCHOOL', width: 130 },
 ];
 
 interface LogoItemProps {
@@ -46,7 +42,7 @@ interface TrustBarProps {
 }
 
 const TrustBar: React.FC<TrustBarProps> = ({
-  title = 'Startups que estruturaram vendas conosco',
+  title = 'Trusted by',
   subtitle,
   speed = 30,
   className = '',
@@ -110,27 +106,6 @@ const TrustBar: React.FC<TrustBarProps> = ({
         </div>
       </div>
 
-      {/* Stats */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3 }}
-        className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12 px-6"
-      >
-        <div className="text-center">
-          <span className="text-3xl md:text-4xl font-heading font-bold text-white">47+</span>
-          <p className="text-xs text-[#C8C9D9] mt-1 uppercase tracking-wider">Startups</p>
-        </div>
-        <div className="text-center">
-          <span className="text-3xl md:text-4xl font-heading font-bold text-white">R$12M+</span>
-          <p className="text-xs text-[#C8C9D9] mt-1 uppercase tracking-wider">Em vendas geradas</p>
-        </div>
-        <div className="text-center">
-          <span className="text-3xl md:text-4xl font-heading font-bold text-white">230%</span>
-          <p className="text-xs text-[#C8C9D9] mt-1 uppercase tracking-wider">Crescimento médio</p>
-        </div>
-      </motion.div>
     </section>
   );
 };
