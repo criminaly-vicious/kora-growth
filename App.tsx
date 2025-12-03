@@ -385,7 +385,7 @@ const App: React.FC = () => {
       {/* ============================================
           HERO SECTION
           ============================================ */}
-      <header className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4 pt-20">
+      <header className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4 pt-32 pb-32">
         <motion.div 
           style={{ y: heroY, opacity: heroOpacity }}
           className="z-10 flex flex-col items-center w-full max-w-5xl text-center"
@@ -395,7 +395,7 @@ const App: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center gap-3 text-[10px] md:text-xs font-mono text-[#C8C9D9] tracking-[0.3em] uppercase mb-8 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm bg-white/5"
+            className="flex items-center gap-3 text-[10px] md:text-xs font-mono text-[#C8C9D9] tracking-[0.3em] uppercase mb-10 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm bg-white/5"
           >
             <span className="w-2 h-2 bg-[#6A6FF0] rounded-full animate-pulse"/>
             <span>Consultoria Comercial para Startups</span>
@@ -407,21 +407,22 @@ const App: React.FC = () => {
           </motion.div>
 
           {/* Main Title - Split Animation */}
-          <div className="relative w-full mb-6">
+          <div className="relative w-full mb-8">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
+              className="space-y-3"
             >
               <motion.h1 
                 variants={fadeInUp}
-                className="text-hero font-heading font-medium tracking-tight text-center block text-white"
+                className="text-4xl md:text-6xl lg:text-7xl font-heading font-medium tracking-tight text-center text-white leading-tight"
               >
                 Sua startup validou o problema.
               </motion.h1>
               <motion.h1 
                 variants={fadeInUp}
-                className="text-hero font-heading font-medium tracking-tight text-center text-white/50 mt-2"
+                className="text-4xl md:text-6xl lg:text-7xl font-heading font-medium tracking-tight text-center text-white/50 leading-tight"
               >
                 Agora precisa vender.
               </motion.h1>
@@ -439,7 +440,7 @@ const App: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-large font-light max-w-2xl mx-auto text-[#C8C9D9] leading-relaxed mb-8"
+            className="text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto text-[#C8C9D9] leading-relaxed mb-10"
           >
             <span className="text-white font-medium">70% das startups morrem</span> por falta de estratégia comercial — não por falta de produto. Estruture seu processo antes que o pipeline seque.
           </motion.p>
@@ -483,10 +484,12 @@ const App: React.FC = () => {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <ScrollIndicator />
+        <div className="absolute bottom-36 md:bottom-40 left-1/2 -translate-x-1/2 z-10">
+          <ScrollIndicator />
+        </div>
 
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full py-4 bg-white text-[#0C0D26] z-20 overflow-hidden border-t-4 border-[#6A6FF0]">
+        <div className="absolute bottom-0 left-0 w-full py-4 md:py-5 bg-white text-[#0C0D26] z-20 overflow-hidden border-t-4 border-[#6A6FF0]">
           <motion.div 
             className="flex w-fit will-change-transform"
             animate={{ x: "-50%" }}
