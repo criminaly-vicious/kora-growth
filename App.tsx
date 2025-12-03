@@ -483,11 +483,6 @@ const App: React.FC = () => {
           <StatsBadge />
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-36 md:bottom-40 left-1/2 -translate-x-1/2 z-10">
-          <ScrollIndicator />
-        </div>
-
         {/* MARQUEE */}
         <div className="absolute bottom-0 left-0 w-full py-4 md:py-5 bg-white text-[#0C0D26] z-20 overflow-hidden border-t-4 border-[#6A6FF0]">
           <motion.div 
@@ -513,6 +508,7 @@ const App: React.FC = () => {
       {/* ============================================
           TRUST BAR
           ============================================ */}
+      <div className="py-12 md:py-16" />
       <TrustBar />
 
       {/* ============================================
